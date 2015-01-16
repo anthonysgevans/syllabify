@@ -18,7 +18,7 @@ class CMUDictionary(object):
 
 		self.regexp = re.compile(r'''
 						(?P<Comment>;;;.*)			# ;;; denotes Comment: to be ignore
-					|   (?P<Word>'?\w+[^\(\)]*)		# Not interested in first charcter
+						|(?P<Word>'?\w+[^\(\)]*)	# Not interested in first charcter
 						(?P<Alternative> \(\d+\))?	# (digit) denotes that another 
 					    (?P<Seperator> \s\s) 		# Seperator: to be ignored
 					    (?P<Phoneme> [^\n]+)    	# The remainder 
