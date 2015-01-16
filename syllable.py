@@ -21,14 +21,14 @@ def factory(phoneme):
 
 		#input is phoneme feature dictionary 
 		if phoneme_feature['Consonant']:
-			# create return consonant object
+			# return consonant object
 			return Consonant(**phoneme_feature)
 
 		elif phoneme_feature['Vowel']:
-			# retun vowel object
+			# return vowel object
 			return Vowel(**phoneme_feature)
 		else:
-			# unkown phoneme class
+			# unknown phoneme class
 			raise Exception('unkown Phoneme Class: cannot create appropriate Phoneme object')
 
 
@@ -46,7 +46,7 @@ def factory(phoneme):
 			# return cluster list
 			return cluster_list
 		else:
-			#Create new cluster add phenome to it and return 
+			# create new cluster add phenome to it and return 
 			cluster_list.append(current_cluster)
 			cluster_list.append(Cluster(phenome))
 			return cluster_list
@@ -167,9 +167,9 @@ def coda_rules(cluster):
 		index = phonemes.index(phoneme)
 		# split on phoneme and discar the rest
 		head = coda_cluster.phoneme_list[:index-1]
-		#update cluster
+		# update cluster
 		coda_cluster.phoneme_list = head
-		#update string list
+		# update string list
 		phonemes = phonemes[:index-1]
 
 		return (phonemes, coda_cluster)

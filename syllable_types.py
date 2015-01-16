@@ -35,9 +35,9 @@ class Cluster(object):
 
 	def get_phoneme(self):
 		return self.phoneme_list
-	# returns string representation of phoneme - for use with comparison objects
+	
 	def get_phoneme_string(self):
-		# syllable withput an onset, or coda has a phenome of '' empty string 
+		# syllable without an onset, or coda has a phenome of '' empty string 
 		string = ''
 		for ph in self.phoneme_list: 
 			string += ph.phoneme
@@ -47,7 +47,6 @@ class Cluster(object):
 		self.phoneme_list.append(phoneme)
 		self._update_comparator()
 
-	# Phase out spelling mistake
 	def add_phoneme(self, phoneme):
 		self.phoneme_list.append(phoneme)
 		self._update_comparator()
@@ -92,7 +91,7 @@ class Cluster(object):
 	def __str__(self):
 		return reduce(lambda x,y: str(x) + str(y), self.phoneme_list,'')
 
-''' container for the empty syllable segment '''
+''' container for the empty syllable cluster '''
 class Empty(object):
 	def __init__(self):
 		self.phoneme = None

@@ -29,7 +29,6 @@ class CMUDictionary(object):
 			self.cmudict_file = open(path_to_dictionary)
 		except IOError, e:
 			print e,('file not found, check settings...')		
-
 		# create Python CMU dictionary
 		self._cmudict = self._create_dictionary() 
 		self.cmudict_file.close()
