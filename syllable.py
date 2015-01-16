@@ -304,7 +304,7 @@ def test():
 	words = open('./CMU_dictionary/american-english')
 	words = words.readlines()
 
-	for i in range(3): 
+	for i in range(100): 
 		word = random.choice(words)[:-1]
 		syllable = generate(word)
 		raw = get_raw(word)

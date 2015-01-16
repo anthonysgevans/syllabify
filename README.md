@@ -3,11 +3,11 @@
 Syllabify partitions phoneme strings into syllables by modelling the rules of syllable
 formation. The module implements Onset Maximalism and enforces the phonotactic rules of the English language. 
 
-Syllabify can be tested from the command line by executing '''syllable.py'''. It will transcribe, and
+Syllabify can be tested from the command line by executing **syllable.py**. It will transcribe, and
 return the syllable structure of 100 words chosen at random from a descriptive dictionary
 packaged with this project.
 
-___
+
 ## About Syllables
 
 Words can be deconstructed into utterances, each utterance is a phone. Phones in turn can
@@ -48,7 +48,7 @@ For each transcribed word, the CMU dictionary returns a phoneme string that is n
 partitioned into syllables. If we are to create a system that can compare phonological
 units we will need to model the rules of syllabification.
 
-___
+
 ## syllable.py
 
 The syllable.py module has access to several data structures defined in syllable_types.py:
@@ -79,7 +79,7 @@ word and maps the factory function to each phoneme string. The method returns a 
 of well-formed Syllable objects.
 
 The syllable module can be executed from the command line. 
-__
+
 ## cmuparser.py
 
 The CMU dictionary is used to transcribe words into their phoneme representation. The
