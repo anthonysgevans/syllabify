@@ -53,7 +53,7 @@ units we will need to model the rules of syllabification.
 
 The syllable.py module has access to several data structures defined in syllable_types.py:
 Syllable The public facing data container of the syllable data structure. It has getter
-methods for onset, nucleus and coda Cluster objects as well as Boolean methods to
+methods for onset, nucleus and coda Cluster objects as well as boolean methods to
 test onset, nucleus and coda elements.
 
 - **Rime** A constituent of the Syllable data object, the Rime class is a wrapper for the
