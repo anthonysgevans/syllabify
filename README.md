@@ -1,6 +1,41 @@
 # Syllabify
 
-___
+Syllabify partitions phoneme strings into syllables by modelling the rules of syllable
+formation. The module implements Onset Maximalism and enforces the phonotactic rules of the English language. 
+
+Syllabify can be tested from the command line. It will transcribe, and
+return the syllable structure of 100 words chosen at random from a descriptive dictionary
+packaged with this project.
+
+The syllable.py module has access to several data structures defined in syllable_types.py:
+Syllable The public facing data container of the syllable data structure. It has getter
+methods for onset, nucleus and coda Cluster objects as well as Boolean methods to
+test onset, nucleus and coda elements.
+
+- **Rime** A constituent of the Syllable data object, the Rime class is a wrapper for the
+nucleus and coda segment of the Syllable.
+
+- **Cluster** The data container that holds groups raw Consonants and Vowels.
+Consonant A wrapper for Consonant phoneme characters.
+
+- **Vowel** A wrapper for Vowel phoneme characters.
+
+- **Empty** Any syllable segments not populated with Consonants or Vowels are given in-
+stantiations of the Empty class.
+
+The syllable module has a method called factory that produces well-formed syllable
+objects. factory defines three further sub-methods: phoneme_fact, cluster_fact and syllable fact. phoneme fact tokenizes a string of phoneme characters into appropriate Vowel
+and Consonant Objects. cluster_fact combines Vowel and Consonant objects into groups
+of like types, and syllable_fact models syllable forming rules adjusting the phonemic com-
+position of Cluster Objects and assigning them to appropriate syllable regions.
+
+The syllable.py module has one public method: generate(word) which takes as argument
+a string word. The method retrieves a list of phoneme representations of the argument
+word and maps the factory function to each phoneme string. The method returns a list
+of well-formed Syllable objects.
+
+The syllable module can be executed from the command line. 
+__
 # Transcribing the Phoneme
 
 The CMU dictionary is used to transcribe words into their phoneme representation. The
@@ -19,44 +54,6 @@ or a None value.
 
 The cmuparser can be tested from the command line. It will transcribe 100 words chosen
 at random from a descriptive dictionary packaged with this project.
-___
-# Syllabify
-
-syllable.py partitions phoneme strings into syllables by modelling the rules of syllable
-formation. The module implements Onset Maximalism as described by Mahon[?] and
-maintains the phonotactic rules of the English language.
-
-The syllable module has access to several data structures defined in syllable types.py:
-Syllable The public facing data container of the syllable data structure. It has getter
-methods for onset, nucleus and coda Cluster objects as well as Boolean methods to
-test onset, nucleus and coda elements.
-
-Rime A constituent of the Syllable data object, the Rime class is a wrapper for the
-nucleus and coda segment of the Syllable.
-
-Cluster The data container that holds groups raw Consonants and Vowels.
-Consonant A wrapper for Consonant phoneme characters.
-
-Vowel A wrapper for Vowel phoneme characters.
-
-Empty Any syllable segments not populated with Consonants or Vowels are given in-
-stantiations of the Empty class.
-
-The syllable module has a method called factory that produces well-formed syllable
-objects. factory defines three further sub-methods: phoneme fact, cluster fact and sylla-
-ble fact. phoneme fact tokenizes a string of phoneme characters into appropriate Vowel
-and Consonant Objects. cluster_fact combines Vowel and Consonant objects into groups
-of like types and syllable fact models syllable forming rules adjusting the phonemic com-
-position of Cluster Objects and assigning them to appropriate syllable regions.
-
-The Syllable module has one public method: generate(word) which takes as argument
-a string word. The method retrieves a list of phoneme representations of the argument
-word and maps the factory function to each phoneme string. The method returns a list
-of well-formed Syllable objects.
-
-The syllable module can be executed from the command line. It will transcribe, and
-return the syllable structure of 100 words chosen at random from a descriptive dictionary
-packaged with this project.
 
 ___
 # Background
