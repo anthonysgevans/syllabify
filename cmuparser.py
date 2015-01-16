@@ -24,25 +24,22 @@ class CMUDictionary(object):
 					    (?P<Phoneme> [^\n]+) # The remainder 
 					 ''', re.VERBOSE)
 
-		# Open file 
+		# import CMU dictionary
 		try:
 			self.cmudict_file = open(path_to_dictionary)
 		except IOError, e:
 			print e,('file not found, check settings...')		
 
-		# create dictionary
+		# create Python CMU dictionary
 		self._cmudict = self._create_dictionary() 
-		# close file
 		self.cmudict_file.close()
 
 	def __getitem__(self, key):
 		if not isinstance(key, basestring):
 			raise KeyError('key must be of type: basestring')
-		
 		try:
 			return self._cmudict[key.encode('utf-8').upper()]
 		except (KeyError, UnicodeDecodeError):
-			# return None if key is not found
 			return None
 
 	def _create_dictionary(self):
@@ -55,7 +52,6 @@ class CMUDictionary(object):
 
 
 	def _update_dictionary(self, match, dictionary):
-		
 		if match.group('Word') == None:
 			# No word found, do nothing
 			return dictionary
